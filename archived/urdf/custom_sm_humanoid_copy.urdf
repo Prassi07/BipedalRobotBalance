@@ -1,0 +1,168 @@
+<!-- Copyright 2016-2017 The MathWorks, Inc. -->
+
+<robot name = "robot">
+
+<material name = "red_A">
+	<color rgba = "0.87 0.32 0.16 1" />
+</material>
+
+<material name = "red_B">
+	<color rgba = "0.88 0.57 0.48 1" />
+</material>
+
+<material name = "gray_A">
+	<color rgba = "0.3 0.3 0.3 1" />
+</material>
+
+<material name = "gray_B">
+	<color rgba = "1 1 1 1" />
+</material>
+
+<!-- Left Leg Start -->
+<link name = "right_foot_floor">
+	<inertial>
+		<origin xyz = "0 -0.013 -0.011" rpy = "0 0 0" />
+		<mass value = "0.126" />
+		<inertia ixx = "1.256e-4" iyy = "3.787e-5" izz = "1.145e-4" iyz = "-2.238e-5" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<geometry>
+			<mesh filename = "foot_floor_new.stl" />
+			
+		</geometry>
+		<material name = "gray_A" />
+	</visual>
+</link>
+
+<link name = "right_foot_joint">
+	<inertial>
+		<origin xyz = "0 -0 0" rpy = "0 0 0" />
+		<mass value = "0.0" />
+		<inertia ixx = "0" iyy = "0" izz = "0" iyz = "0" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<origin rpy="0 0 0" xyz="0 0.0022 +0.0167"/>
+		<geometry>
+			<mesh filename = "foot_joint_new.stl" />
+		</geometry>
+		<material name = "gray_A" />
+	</visual>
+</link>
+
+<link name = "right_lower_leg">
+	<inertial>
+		<origin xyz = "0.000 0.00 0.1043" rpy = "0 0 0" />
+		<mass value = "0.161" />
+		<inertia ixx = "3.775e-4" iyy = "3.872e-4" izz = "3.398e-5" iyz = "0" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<origin rpy="0 0 0" xyz="0 0.0 0.1043"/>
+		<geometry>
+			<mesh filename = "lower_leg.step" />
+		</geometry>
+		<material name = "gray_B" />
+	</visual>
+</link>
+
+
+<link name = "right_upper_leg">
+	<inertial>
+		<origin xyz = "0.010 0.02 0.1041" rpy = "0 0 0" />
+		<mass value = "0.176" />
+		<inertia ixx = "4.075e-4" iyy = "4.285e-4" izz = "4.997e-5" iyz = "0" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<origin rpy="0 0 0" xyz="0.025 0.0 0.1041"/>
+		<geometry>
+			<mesh filename = "upper_leg.step" />
+		</geometry>
+		<material name = "gray_B" />
+	</visual>
+</link>
+
+<link name = "right_hip_pitch_yaw">
+	<inertial>
+		<origin xyz = "0.010 0.02 0.1041" rpy = "0 0 0" />
+		<mass value = "0.176" />
+		<inertia ixx = "4.075e-4" iyy = "4.285e-4" izz = "4.997e-5" iyz = "0" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<geometry>
+			<mesh filename = "hip_pitch_yaw.stl" />
+		</geometry>
+		<material name = "gray_B" />
+	</visual>
+</link>
+
+<link name = "right_hip_yaw_roll">
+	<inertial>
+		<origin xyz = "0.010 0.02 0.1041" rpy = "0 0 0" />
+		<mass value = "0.176" />
+		<inertia ixx = "4.075e-4" iyy = "4.285e-4" izz = "4.997e-5" iyz = "0" ixz = "0" ixy = "0" />
+	</inertial>
+
+	<visual>
+		<geometry>
+			<mesh filename = "hip_yaw_roll.stl" />
+		</geometry>
+		<material name = "gray_B" />
+	</visual>
+</link>
+
+
+
+<joint name = "right_ankle_roll" type = "continuous">
+	<origin xyz = "0 0 0" rpy = "0 0 0" />
+	<axis xyz = "0 1 0" />
+	<dynamics damping = "0.005" />
+	<parent link = "right_foot_floor" />
+	<child link = "right_foot_joint" />
+</joint>
+
+<joint name = "right_ankle_pitch" type = "continuous">
+	<origin xyz = "0 0.0022 +0.0167" rpy = "0 0 0" />
+	<axis xyz = "1 0 0" />
+	<dynamics damping = "0.005" />
+	<parent link = "right_foot_joint" />
+	<child link = "right_lower_leg" />
+</joint>
+
+<joint name = "right_knee" type = "continuous">
+	<origin xyz = "0.0 0 0.1043" rpy = "0 0 0" />
+	<axis xyz = "1 0 0" />
+	<dynamics damping = "0.005" />
+	<parent link = "right_lower_leg" />
+	<child link = "right_upper_leg" />
+</joint>
+
+<joint name = "right_hip_pitch" type = "continuous">
+	<origin xyz = "0.01905 0 0.1041" rpy = "0 0 0" />
+	<axis xyz = "1 0 0" />
+	<dynamics damping = "0.005" />
+	<parent link = "right_upper_leg" />
+	<child link = "right_hip_pitch_yaw" />
+</joint>
+
+<joint name = "right_hip_yaw" type = "continuous">
+	<origin xyz = "0.018 0 0.018" rpy = "0 0 0" />
+	<axis xyz = "1 0 0" />
+	<dynamics damping = "0.005" />
+	<parent link = "right_hip_pitch_yaw" />
+	<child link = "right_hip_yaw_roll" />
+</joint>
+
+
+<!-- Left Leg End -->
+
+
+
+<!-- Right Leg Start -->
+
+<!-- Right Leg End -->
+
+</robot>
