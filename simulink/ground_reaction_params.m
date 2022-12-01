@@ -3,7 +3,7 @@
 % *************************** %
 
 % body mass
-m = 1.687; %[kg] 
+m = 12; %[kg] 
 
 % gravitational acceleration
 g = 9.81; %[m/s^2]
