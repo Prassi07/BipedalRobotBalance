@@ -3,7 +3,7 @@
 % *************************** %
 
 % body mass
-m = 1.687; %[kg] 
+m = 12; %[kg] 
 
 % gravitational acceleration
 g = 9.81; %[m/s^2]
@@ -17,8 +17,6 @@ k_gy = m*g/0.1; %[N/m]
 
 % max relaxation speed of normal ground interaction
 v_gy_max = 0.3; %[m/s]
-
-
 
 % ------------------------
 % 4.2 Horizontal component
