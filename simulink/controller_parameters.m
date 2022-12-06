@@ -3,7 +3,7 @@
 % *************************** %
 
 % body mass
-m = 12; %[kg] 
+m = 42; %[kg] 
 
 % gravitational acceleration
 g = 9.81; %[m/s^2]
@@ -14,7 +14,7 @@ g = 9.81; %[m/s^2]
 % ----------------------
 
 % stiffness of ground interaction along contact normal axis
-k_gn = m*g/0.01; %[N/m]
+k_gn = m*g/0.001; %[N/m]
 
 % max relaxation speed of normal ground interaction
 v_gn_max = 0.03; %[m/s]
