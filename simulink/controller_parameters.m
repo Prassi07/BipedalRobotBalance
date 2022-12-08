@@ -10,6 +10,17 @@ Kd_pitch = 8;
 
 Disturbance_F = -100; % [Frontal Plane Disturbance (Forward/Backward)]
 Disturbance_S = 100; % [Sagittal Plane Disturbance (Sideways)]
+
+m_total = 40;
+
+m_body = m_total/2;
+m_legs = m_total/2;
+
+m_ratio = m_body/m_legs;
+TotalForce = sqrt(Disturbance_S^2 + Disturbance_F^2);
+
+fprintf("Ratio: %f ,Disturbance Force: %f \n", m_ratio, TotalForce);
+
 % *************************** %
 % Ground Interaction Model    %
 % *************************** %
