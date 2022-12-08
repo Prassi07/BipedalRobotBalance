@@ -6,9 +6,9 @@ Kp = 100;
 Kd = 10;
 
 Kp_pitch = 100;
-Kd_pitch = 10;
+Kd_pitch = 8;
 
-Disturbance_F = -0; % [Frontal Plane Disturbance (Forward/Backward)]
+Disturbance_F = -100; % [Frontal Plane Disturbance (Forward/Backward)]
 Disturbance_S = 100; % [Sagittal Plane Disturbance (Sideways)]
 % *************************** %
 % Ground Interaction Model    %
