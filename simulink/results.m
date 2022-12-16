@@ -32,6 +32,6 @@ hold on;
 title('Disturbance Force Plot for Varying Mass Distribution');
 
 grid on;
-legend('Forward Diagonal Direction', 'Backward Diagonal Direction');
+legend('Backward Diagonal Direction', 'Forward Diagonal Direction');
 xlabel('Mass ratio (m_{body}/m_{legs})');
 ylabel('Maximum Disturbance Force (N)');
